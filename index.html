@@ -3,7 +3,57 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SINGERS</title>
+    <title>SINGERS</title><style>
+      /* Style for the container */
+      #promotion-container {
+          width: 100%;
+          height: 200px; /* Adjust height as needed */
+          overflow: hidden;
+          position: relative;
+      }
+  
+      /* Style for individual promotions */
+      .promotion {
+          position: absolute;
+          bottom: 0;
+          left: 100%; /* Initially hides the promotion outside the container */
+          width: 100%;
+          min-width: 350px;
+          height: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f2f2f2;
+          transition: left 0.9s ease-in-out;
+      }
+  
+      /* Style for the image */
+      .promotion img {
+          max-width: 50%;
+          height: auto;
+      }
+  
+      /* Style for the text information */
+      .promotion .text {
+          max-width: 50%;
+          padding: 10px;
+          padding-left: 85px;
+      }
+  
+      /* Animation to slide the promotions */
+      .move {
+          left: 0;
+      }
+      .imgsize{
+          
+          min-width: 80px;
+          min-height:60px ;
+  
+      }
+      </style>
+     
+   
+      
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/responsee.css">
@@ -15,9 +65,65 @@
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>    
     <script type="text/javascript" src="js/validation.js"></script> 
-  </head>  
+  </head> 
+  <body><div id="promotion-container">
+    
+    <a href="https://dancerss.netlify.app"> <div class="promotion">
+        <p> Ads </p>
+        <div class="image">
+            <img class="imgsize" src="img/dan1.jpg" alt="Promotion 1">
+        </div>
+        <div class="text">
+            
+            <p>Dancers</p>
+        </div>
+    </div></a>
+
+    <a href="https://artistss.netlify.app"><div class="promotion">
+        <p> Ads </p>
+        <div class="image">
+            <img class="imgsize" src="img/art.jpg" alt="Promotion 2">
+        </div>
+        <div class="text">
+            <p>Artists</p>
+        </div>
+    </div></a>
+   
+    <a href="https://instrument-artists.netlify.app"><div class="promotion">
+        <p> Ads </p>
+        <div class="image">
+            <img class="imgsize" src="img/inst1.jpg" alt="Promotion 3">
+        </div>
+        <div class="text">
+            <p> Instrument artists</p>
+        </div>
+    </div></a>
   
-  <body class="size-1140">
+
+   
+</div>
+
+<script>
+    // JavaScript to rotate promotions every 5 seconds
+    document.addEventListener('DOMContentLoaded', function () {
+        var promotions = document.querySelectorAll('.promotion');
+        var index = 0;
+
+        function rotatePromotion() {
+            promotions[index].classList.remove('move');
+            index = (index + 1) % promotions.length;
+            promotions[index].classList.add('move');
+        }
+
+        rotatePromotion(); // Initially display the first promotion
+
+        setInterval(rotatePromotion, 10000); // Rotate promotion every 5 seconds
+    });
+</script>
+
+ 
+  
+  
   	<!-- PREMIUM FEATURES BUTTON -->
   	<a target="_blank" class="hide-s" href="../template/prospera-premium-responsive-business-template/" style="position:fixed;top:120px;right:-14px;z-index:10;"><img src="img/premium-features.png" alt=""></a>
     <!-- HEADER -->
